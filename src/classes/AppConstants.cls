@@ -11,7 +11,7 @@ public class AppConstants {
     
     
     //error messages
-    public static final String FILE_MISSING = 'Please provide a comma seperated file.';
+    public static final String FILE_MISSING = 'Please provide a comma seperated files.';
     public static final String EMPTY_FILE = 'CSV file is empty.';
     public static final String TYPE_OPTION_NOT_SELECTED = 'Please choose a valid custom metadata type.';
     public static final String HEADER_MISSING_DEVNAME_AND_LABEL = 'Header must contain atleast one of these two fields - '+ DEV_NAME_ATTRIBUTE + ', ' + LABEL_ATTRIBUTE +'.';
