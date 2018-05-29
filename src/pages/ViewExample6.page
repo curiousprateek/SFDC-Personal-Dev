@@ -1,0 +1,136 @@
+<apex:page sidebar="false" showHeader="false" docType="html-5.0" language="en-US" controller="Example_Controller">
+  <html lang="en">
+    <head>
+      <!--adding viewport meta tag, to ensure proper rendering and touch zooming-->
+      <meta charset="utf-8"></meta>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+      <title>ANGULAR JS- Knowledge Series</title>
+      
+      <!--page specific style-->
+      <style>
+        table { padding: 10px; width: 100%; }
+        .CodeMirror { height: auto; border: 1px solid #ddd; }
+        .CodeMirror-scroll { height: auto; overflow-y: hidden; overflow-x: auto;}
+        .CodeMirror-code{ font-size: 1.5em; }
+        .grid { width: 50%; padding: 5px; }
+        .header{ padding-left: 10px; font-size: 1.5em; }
+      </style>
+      
+      <!--adding CSS-->
+      <link href="{!URLFOR($Resource.CodeMirror, 'css/codemirror.css')}" rel="stylesheet" />
+      <link href="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+      
+    </head>
+    <body>
+      <div ng-app="demo">
+        <table >
+          <tr>
+            <apex:iframe src="/apex/Example6" scrolling="true" id="theIframe" height="350px"/>
+          </tr>
+          <tr >
+            <td class="grid" valign="top">
+              <div class="header">html</div>
+              <textarea ui-codemirror="{
+                  lineNumbers: true,
+                  readOnly: 'nocursor',
+                  lineWrapping : true,
+                  mode: 'xml'
+                }" >
+<div class="bs ng-cloak" ng-app="demo">
+  <div ng-controller="appCtrl">
+    <ul>
+      <li ng-repeat="account in accountData track by $index">
+          {{account.Name}}
+      </li>
+    </ul>
+  </div>
+</div>
+              </textarea>
+            </td>
+            <td class="grid" valign="top">
+              <div class="header">script</div>
+              <textarea ui-codemirror="{
+                  lineNumbers: true,
+                  readOnly: 'nocursor',
+                  lineWrapping : true,
+                  mode: 'javascript'
+                }" >
+function getAccountsR(callback){
+  Visualforce.remoting.Manager.invokeAction(
+    '{!$RemoteAction.Example_Controller.getAccounts}',
+    callback,  
+    {escape: false}  
+  );        
+}
+
+var app = angular.module('demo', []);
+
+app.controller('appCtrl', function ($scope){
+  
+  $scope.getAccounts = function() {
+    getAccountsR(function(result, event){  
+      $scope.$apply(function(){  
+        if(event.status) {
+          //success
+          $scope.accountData = result;
+          console.log(result);
+        } else {
+          //error
+          console.log(event.message);
+        }
+      });   
+    });
+  };
+  
+  $scope.getAccounts();
+});
+              </textarea>
+            </td>
+          </tr>
+          <tr >
+            <td class="grid" valign="top">
+              <div class="header">controller</div>
+              <textarea ui-codemirror="{
+                  lineNumbers: true,
+                  readOnly: 'nocursor',
+                  lineWrapping : true,
+                  mode: 'clike'
+                }" >
+public with sharing class Example_Controller {
+
+  @RemoteAction
+  public static List&lt;Account&gt; getAccounts(){
+      
+      return [Select Id, Name, Type from Account Order by Name];
+  }
+  
+}
+              </textarea>
+            </td>
+          </tr>
+        </table>
+        <div class="bs">
+          <div class="pull-right" style="padding: 20px">
+            <b>Designed by:</b> Pradeep (Deloitte USI)
+          </div>
+        </div>
+      </div>
+      <!--adding scripts-->
+      <script src="{!URLFOR($Resource.AngularJS, 'angular.min.js')}"></script>
+      <script src="{!URLFOR($Resource.CodeMirror, 'js/codemirror.js')}"></script>
+      <script src="{!URLFOR($Resource.CodeMirror, 'js/xml.js')}"></script>
+      <script src="{!URLFOR($Resource.CodeMirror, 'js/javascript.js')}"></script>
+      <script src="{!URLFOR($Resource.CodeMirror, 'js/clike.js')}"></script>
+      <script src="{!URLFOR($Resource.CodeMirror, 'js/ui-codemirror.min.js')}"></script>
+      
+      <!--page specific script-->
+      <script>
+        var app = angular.module('demo', ['ui.codemirror']);
+      </script>
+    
+      <!--page specific script from static resource>
+      <script src="{!URLFOR($Resource.Example1_Script)}" ></script-->
+    </body>
+  </html>
+</apex:page>

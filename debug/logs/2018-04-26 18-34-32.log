@@ -1,0 +1,51 @@
+39.0 APEX_CODE,FINEST;APEX_PROFILING,INFO;CALLOUT,INFO;DB,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,INFO;WAVE,INFO;WORKFLOW,INFO
+Execute Anonymous: Order_Event__e orderEvent = new Order_Event__e(Order_Number__c='105', Has_Shipped__c=true);
+Execute Anonymous: Database.SaveResult sr = EventBus.publish(orderEvent);
+18:34:31.0 (901158)|USER_INFO|[EXTERNAL]|00590000002m6GC|pratsaxena@prateek.com|India Standard Time|GMT+05:30
+18:34:31.0 (923248)|EXECUTION_STARTED
+18:34:31.0 (927828)|CODE_UNIT_STARTED|[EXTERNAL]|execute_anonymous_apex
+18:34:31.0 (1166806)|VARIABLE_SCOPE_BEGIN|[1]|orderEvent|Order_Event__e|true|false
+18:34:31.0 (1215376)|VARIABLE_SCOPE_BEGIN|[2]|sr|Database.SaveResult|true|false
+18:34:31.0 (1346358)|HEAP_ALLOCATE|[72]|Bytes:3
+18:34:31.0 (1390209)|HEAP_ALLOCATE|[77]|Bytes:152
+18:34:31.0 (1405492)|HEAP_ALLOCATE|[342]|Bytes:408
+18:34:31.0 (1422179)|HEAP_ALLOCATE|[355]|Bytes:408
+18:34:31.0 (1434690)|HEAP_ALLOCATE|[467]|Bytes:48
+18:34:31.0 (1465289)|HEAP_ALLOCATE|[139]|Bytes:6
+18:34:31.0 (1493101)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:3
+18:34:31.0 (1604510)|STATEMENT_EXECUTE|[1]
+18:34:31.0 (1608057)|STATEMENT_EXECUTE|[1]
+18:34:31.0 (1651621)|HEAP_ALLOCATE|[1]|Bytes:4
+18:34:31.0 (1757179)|HEAP_ALLOCATE|[1]|Bytes:3
+18:34:31.0 (1874774)|VARIABLE_ASSIGNMENT|[1]|this.Order_Number__c|"105"|0x4d9fc07f
+18:34:31.0 (1920680)|HEAP_ALLOCATE|[50]|Bytes:5
+18:34:31.0 (1946841)|HEAP_ALLOCATE|[56]|Bytes:5
+18:34:31.0 (1956073)|HEAP_ALLOCATE|[64]|Bytes:7
+18:34:31.0 (2001301)|VARIABLE_ASSIGNMENT|[1]|this.Has_Shipped__c|true|0x4d9fc07f
+18:34:31.0 (2054566)|VARIABLE_ASSIGNMENT|[1]|orderEvent|{"Order_Number__c":"105","Has_Shipped__c":true}|0x4d9fc07f
+18:34:31.0 (2061818)|STATEMENT_EXECUTE|[2]
+18:34:31.0 (2111613)|HEAP_ALLOCATE|[2]|Bytes:8
+18:34:31.0 (2123230)|DML_BEGIN|[2]|Op:Insert|Type:Order_Event__e|Rows:1
+18:34:31.0 (2172288)|HEAP_ALLOCATE|[EXTERNAL]|Bytes:8
+18:34:31.0 (9989375)|DML_END|[2]
+18:34:31.0 (10067410)|HEAP_ALLOCATE|[2]|Bytes:4
+18:34:31.0 (10128948)|VARIABLE_ASSIGNMENT|[2]|sr|{"success":true,"id":"e00xx0000000004AAA"}|0x74d9cf2f
+18:34:31.11 (11103651)|CUMULATIVE_LIMIT_USAGE
+18:34:31.11 (11103651)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 0 out of 100
+  Number of query rows: 0 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+18:34:31.11 (11103651)|CUMULATIVE_LIMIT_USAGE_END
+
+18:34:31.0 (11140003)|CODE_UNIT_FINISHED|execute_anonymous_apex
+18:34:31.0 (11962476)|EXECUTION_FINISHED

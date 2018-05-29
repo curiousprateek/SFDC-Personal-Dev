@@ -1,0 +1,914 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Price",
+				"Price__c"
+			],
+			[
+				"qua",
+				"Quantity__c"
+			],
+			[
+				"Camping",
+				"Camping_Item__c"
+			],
+			[
+				"on",
+				"onclick\tAction"
+			],
+			[
+				"get",
+				"PUBLIC get(ANY key) \tString"
+			],
+			[
+				"integratio",
+				"integrationDataMap"
+			],
+			[
+				"intega",
+				"integrationDataMap"
+			],
+			[
+				"de",
+				"debug(Enum_loglevel, Anydatatype_msg)"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/aura/campingListItem/campingListItemController.js",
+			"settings":
+			{
+				"buffer_size": 177,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/EinsteinVision_Admin.cls",
+			"settings":
+			{
+				"buffer_size": 3360,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/EinsteinVision_PredictionService.cls",
+			"settings":
+			{
+				"buffer_size": 33429,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/EinsteinVision_Dataset.cls",
+			"settings":
+			{
+				"buffer_size": 575,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/EinsteinVision_LabelSummary.cls",
+			"settings":
+			{
+				"buffer_size": 120,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/EinsteinVision_HttpBodyPartDatasetUrl.cls",
+			"settings":
+			{
+				"buffer_size": 878,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/package.xml",
+			"settings":
+			{
+				"buffer_size": 667,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/aura/campingHeader/campingHeader.cmp",
+			"settings":
+			{
+				"buffer_size": 794,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/aura/camping/camping.cmp",
+			"settings":
+			{
+				"buffer_size": 81,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/aura/campingList/campingList.cmp",
+			"settings":
+			{
+				"buffer_size": 1246,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/aura/campingList/campingListController.js",
+			"settings":
+			{
+				"buffer_size": 1323,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/aura/campingList/campingListHelper.js",
+			"settings":
+			{
+				"buffer_size": 522,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 588.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"JSON ",
+				"Set Syntax: JSON"
+			],
+			[
+				"ligh",
+				"MavensMate: New Lightning App"
+			],
+			[
+				"set syntax ap",
+				"Set Syntax: Apex"
+			],
+			[
+				"Forc",
+				"Salesforce Reference - Apex"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"set syntax ape",
+				"Set Syntax: Apex"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 678.0
+	},
+	"console":
+	{
+		"height": 775.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Development/Prateek Dev Org",
+		"/C/Development/Prateek Dev Org/src",
+		"/C/Development/Prateek Dev Org/src/classes"
+	],
+	"file_history":
+	[
+		"/C/Development/Prateek Dev Org/src/aura/campingListItem/campingListItem.cmp",
+		"/C/Development/Prateek Dev Org/src/package.xml",
+		"/C/Development/Prateek Dev Org/src/classes/CampingListController.cls",
+		"/C/Development/Prateek Dev Org/src/aura/campingListItem/campingListItemController.js",
+		"/C/Development/Hugo DEV/src/classes/SWT_InitializePassportSABAIntegration.cls",
+		"/C/Users/pratsaxena/Documents/Project Docs/Hugo/Integration/PartnerUserToSaba.json",
+		"/C/Users/pratsaxena/Documents/Project Docs/Hugo/Integration/PartnerContactToPassport.json",
+		"/C/Users/pratsaxena/Documents/Project Docs/Hugo/Integration/PartnerAccountToSaba.json",
+		"/C/Development/Hugo DEV/src/classes/SWT_OpportunityLineItemTriggerHelper.cls",
+		"/C/Development/Hugo DEV/src/classes/SWT_BatchUpdateConvertedleads.cls",
+		"/C/Development/Hugo DEV/src/classes/temp_test.cls",
+		"/C/Development/Hugo DEV/src/classes/SWT_CloneJBPSubPlanCls.cls",
+		"/C/Development/Hugo DEV/src/classes/AddressController.cls",
+		"/C/Development/Hugo DEV/src/triggers/AddressTrigger.trigger",
+		"/C/Development/Hugo DEV/src/triggers/SWT_AccountTrigger.trigger",
+		"/C/Development/Hugo DEV/src/classes/SWT_BatchUpdateCampaignMembers.cls",
+		"/C/Development/Hugo DEV/src/classes/SWT_Constants_Class.cls",
+		"/C/Development/Hugo DEV/src/classes/SWT_BatchOpportunityQuoteStageSync.cls",
+		"/C/Development/Hugo DEV/src/classes/SWT_Lead_Helper.cls",
+		"/C/Development/Hugo DEV/src/classes/SWT_Opportunity_Helper.cls",
+		"/C/Development/Hugo DEV/src/classes/SWT_OpportunityLineItem_Trigger_Handler.cls",
+		"/C/Development/Hugo DEV/src/classes/SWT_Lead_Trigger_Handler_Class.cls",
+		"/C/Development/Hugo DEV/src/classes/SWT_CloneOpportunityInvocable.cls",
+		"/C/Development/Hugo DEV/src/pages/SWT_Login.page",
+		"/C/Development/Hugo DEV/src/pages/SWT_WebToCase.page",
+		"/C/Development/Hugo DEV/src/classes/SWT_QuoteHelper.cls",
+		"/C/Development/Hugo DEV/src/classes/SWT_QuoteTriggerHandler.cls",
+		"/C/Development/Hugo DEV/src/triggers/SWT_QuoteTrigger.trigger",
+		"/C/Development/Hugo DEV/src/pages/SWT_ContactRegistration.page",
+		"/C/Development/Hugo DEV/src/classes/SWT_ExceptionHandler.cls",
+		"/C/Users/pratsaxena/AppData/Roaming/Sublime Text 3/Packages/SublimeSalesforceReference/SublimeSalesforceReference.sublime-settings",
+		"/C/Users/pratsaxena/Documents/Hugo DEV",
+		"/C/Users/pratsaxena/AppData/Roaming/Sublime Text 3/Packages/User/mavensmate.sublime-settings",
+		"/C/Users/pratsaxena/AppData/Roaming/Sublime Text 3/Packages/MavensMate/mavensmate.sublime-settings",
+		"/C/Users/pratsaxena/AppData/Roaming/Sublime Text 3/Packages/MavensMate/sublime/settings-help.txt"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"validExpense",
+			"clickCreateItem",
+			"setItem",
+			"expenses",
+			"createExpense",
+			"expense",
+			"ex",
+			"newExpense",
+			"expenses",
+			"theExpenses",
+			"expense",
+			"valid",
+			"validity",
+			"expenses",
+			"items",
+			"Camping Item",
+			"newExpense",
+			"expenseform"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/aura/campingListItem/campingListItemController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 177,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								177,
+								177
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/classes/EinsteinVision_Admin.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								251,
+								226
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/classes/EinsteinVision_PredictionService.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 33429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3079,
+								3116
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/classes/EinsteinVision_Dataset.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 575,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								289,
+								316
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/classes/EinsteinVision_LabelSummary.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								40
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/classes/EinsteinVision_HttpBodyPartDatasetUrl.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 878,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								420,
+								433
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/package.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 667,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/aura/campingHeader/campingHeader.cmp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 794,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								718,
+								718
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/aura/camping/camping.cmp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 81,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/aura/campingList/campingList.cmp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1246,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								136,
+								143
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "src/aura/campingList/campingListController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1323,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								658,
+								658
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "src/aura/campingList/campingListHelper.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 522,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								499,
+								499
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 55.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MavensMate-OutputPanel":
+	{
+		"height": 183.0
+	},
+	"output.exec":
+	{
+		"height": 530.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Prateek Dev Org.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"einsteinvision_httpbodypartdataseturl",
+				"src\\classes\\EinsteinVision_HttpBodyPartDatasetUrl.cls"
+			],
+			[
+				"einsteinvision_labelsummary",
+				"src\\classes\\EinsteinVision_LabelSummary.cls"
+			],
+			[
+				"einsteinvision_dataset",
+				"src\\classes\\EinsteinVision_Dataset.cls"
+			],
+			[
+				"einsteinvision_predictionservice",
+				"src\\classes\\EinsteinVision_PredictionService.cls"
+			],
+			[
+				"campinglistcontroller",
+				"src\\classes\\CampingListController.cls"
+			],
+			[
+				"initiatep",
+				"src\\classes\\SWT_InitiatePassportSABAIntegration.cls"
+			],
+			[
+				"swt_exceptionhandler",
+				"src\\classes\\SWT_ExceptionHandler.cls"
+			],
+			[
+				"swt_initia",
+				"src\\classes\\SWT_InitializePassportSABAIntegration.cls"
+			],
+			[
+				"accountin",
+				"src\\classes\\SWT_AccountIntegrationWrapper.cls"
+			],
+			[
+				"accountgton",
+				"src\\classes\\SWT_AccountIntegrationWrapper.cls"
+			],
+			[
+				"swt_batchpartnerpaymentstatussharing",
+				"src\\classes\\SWT_BatchPartnerPaymentStatusSharing.cls"
+			],
+			[
+				"opportunityhelper",
+				"src\\classes\\SWT_Opportunity_Helper.cls"
+			],
+			[
+				"swt_accounttri",
+				"src\\triggers\\SWT_AccountTrigger.trigger"
+			],
+			[
+				"addresstr",
+				"src\\triggers\\AddressTrigger.trigger"
+			],
+			[
+				"clone",
+				"src\\classes\\SWT_CloneJBPSubPlanCls.cls"
+			],
+			[
+				"test.cls",
+				"src\\classes\\temp_test.cls"
+			],
+			[
+				"",
+				"src\\classes\\SWT_Constants_Class.cls"
+			],
+			[
+				"swt_batchopportunityquotestagesync",
+				"src\\classes\\SWT_BatchOpportunityQuoteStageSync.cls"
+			],
+			[
+				"leadhelper",
+				"src\\classes\\SWT_Lead_Helper.cls"
+			],
+			[
+				"batchupdatecam",
+				"src\\classes\\SWT_BatchUpdateCampaignMembers.cls"
+			],
+			[
+				"converted",
+				"src\\classes\\SWT_BatchUpdateConvertedleads.cls"
+			],
+			[
+				"swt_consta",
+				"src\\classes\\SWT_Constants_Class.cls"
+			],
+			[
+				"swt_opportunitylineitemtriggerhelper",
+				"src\\classes\\SWT_OpportunityLineItemTriggerHelper.cls"
+			],
+			[
+				"swt_opportunity_line",
+				"src\\classes\\SWT_OpportunityLineItem_Trigger_Handler.cls"
+			],
+			[
+				"swt_lead",
+				"src\\classes\\SWT_Lead_Trigger_Handler_Class.cls"
+			],
+			[
+				"swt_opportunit",
+				"src\\classes\\SWT_Opportunity_Helper.cls"
+			],
+			[
+				"opportunitylineitem",
+				"src\\classes\\SWT_OpportunityLineItemTriggerHelper.cls"
+			],
+			[
+				"quotetrigger",
+				"src\\triggers\\SWT_QuoteTrigger.trigger"
+			],
+			[
+				"quotetriggerhan",
+				"src\\classes\\SWT_QuoteTriggerHandler.cls"
+			],
+			[
+				"quot",
+				"src\\classes\\SWT_QuoteHelper.cls"
+			],
+			[
+				"swt_contact",
+				"src\\pages\\SWT_ContactRegistration.page"
+			],
+			[
+				"swt_we",
+				"src\\pages\\SWT_WebToCase.page"
+			],
+			[
+				"swt_logi",
+				"src\\pages\\SWT_Login.page"
+			],
+			[
+				"swt_clone",
+				"src\\classes\\SWT_CloneOpportunityInvocable.cls"
+			],
+			[
+				"swt_constants_class",
+				"src\\classes\\SWT_Constants_Class.cls"
+			],
+			[
+				"swt_batchupdatecam",
+				"src\\classes\\SWT_BatchUpdateCampaignMembers.cls"
+			],
+			[
+				"swt_opportunity",
+				"src\\classes\\SWT_Opportunity_Helper.cls"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 588.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 834.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 346.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

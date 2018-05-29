@@ -1,0 +1,66 @@
+<apex:page showHeader="false" docType="html-5.0" language="en-US">
+  <html lang="en">
+    <head>
+      <!--adding viewport meta tag, to ensure proper rendering and touch zooming-->
+      <meta charset="utf-8"></meta>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+      <title>Example5</title>
+      
+      <!--page specific style-->
+      <style>
+        .ng-cloak {
+            display: none !important;
+        }
+        a {
+            cursor: pointer;
+        }
+      </style>
+      
+      <!--adding CSS-->
+      <link href="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+    </head>
+    <body style="background: #F9FAF7; padding: 20px">
+      <h1>Example5: Removing names from a list using ng-click and adding a validation to add button.</h1><br/><br/>
+      <div class="bs ng-cloak" ng-app="demo">
+        <div ng-controller="appCtrl">
+          <ul>
+            <li ng-repeat="name in names track by $index">
+                {{name}}
+                <a href="" ng-click="removeName($index)">[x]</a>
+            </li>
+          </ul>
+          <form ng-submit="addName()">
+            <input type="text" ng-model="enteredName"/>
+            <button type="submit" ng-disabled="enteredName == ''">add</button>
+          </form>
+        </div>
+      </div>
+      
+      <!--adding scripts-->
+      <script src="{!URLFOR($Resource.AngularJS, 'angular.min.js')}" ></script>
+      
+      <!--page specific script-->
+      <script>
+        var app = angular.module('demo', []);
+        
+        app.controller('appCtrl', function ($scope){
+          $scope.names = ['Larry', 'Curly', 'Moe'];
+          $scope.enteredName = '';
+          
+          $scope.addName = function() {
+            $scope.names.push($scope.enteredName);
+            $scope.enteredName = '';
+          };
+          
+          $scope.removeName = function(index) {
+            $scope.names.splice(index, 1);
+          };
+        });
+      </script>
+      
+      <!--page specific script from static resource>
+      <script src="{!URLFOR($Resource.Example1_Script)}" ></script-->
+    </body>
+  </html>
+</apex:page>

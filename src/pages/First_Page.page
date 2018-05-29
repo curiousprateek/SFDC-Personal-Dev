@@ -1,0 +1,51 @@
+<apex:page standardController="Account" extensions="NewController">
+<script>
+    function checkRecordSaved(){
+        alert("Record Saved");
+    }
+</script>
+<apex:form >
+<apex:pageBlock id="pb1">
+
+  
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  <apex:pageBlockSection title="PageBlockSection" columns="2">
+   <apex:dataTable value="{!accList}" var="acct" id="theTable" rowClasses="odd,even"
+
+                        styleClass="tableClass">
+
+                <apex:facet name="header">Account Detail:</apex:facet>
+                
+                <apex:column >
+
+                        <apex:facet name="header">Name</apex:facet>
+
+                        <apex:outputText value="{!acct.name}"/>
+
+                </apex:column>
+
+                <apex:column >
+
+                        <apex:facet name="header">ID</apex:facet>
+
+                        <apex:outputText value="{!acct.id}"/>
+
+                </apex:column>
+                
+                </apex:dataTable>
+        </apex:pageBlockSection>
+    <apex:outputLabel value="Input Text: NAME" ></apex:outputLabel>
+        <apex:inputText value="{!inputText1}" />
+    <apex:outputLabel value="Input Text: CITY" ></apex:outputLabel>
+        <apex:inputText value="{!inputText2}" />
+    
+    <br/>
+    
+    <apex:commandButton action="{!save}" value="Save" style="align=right" onComplete="checkRecordSaved();" reRender="ouputLabel1"/>    
+    <apex:outputLabel id="ouputLabel1" value="Outcome : {!outcome}" ></apex:outputLabel>
+  </apex:pageBlock>
+
+  </apex:form>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

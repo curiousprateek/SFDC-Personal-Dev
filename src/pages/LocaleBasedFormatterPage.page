@@ -1,0 +1,161 @@
+<!-- **********************************Locale Based Formatter Demo Page************************************ -->
+<apex:page >
+  <!-- Include Required Prerequisites -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
+ 
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+  
+  <c:LocaleBasedFormatConvertor />
+  <script type="text/javascript">
+  var sLocaleFormatString = convertToJavascriptDateTime($('#strLocaleDateFormat').val());
+  var sLocaleDateTimeFormatString = convertToJavascriptDateTime($('#strLocaleDateTimeFormat').val());
+
+  $(function() {
+      $('input[name="enterDate"]').daterangepicker({
+          singleDatePicker: true,
+          timePicker: true,
+          showDropdowns: true,
+          locale: {
+            format: sLocaleDateTimeFormatString
+        }
+      }, 
+      function(start, end, label) {
+          
+      });
+  });
+  
+  function checkLocale(){
+      console.log('In Method()');
+      var number = document.getElementById('NumberField').value;
+      var formattedValue = splitLocaleNumber(number,2,1);
+      var number2 = document.getElementById('FormattedNumberField').value;
+      var absValue = splitLocaleNumber(number2,1,1);
+      var userLocale = document.getElementById('strUserLocale').value;
+      var dateFormat = document.getElementById('strLocaleDateFormat').value;
+      var dateTimeFormat = document.getElementById('strLocaleDateTimeFormat').value;
+      document.getElementById('NumberFieldFormatted').value = formattedValue;
+      document.getElementById('absNumber').value = absValue;
+      document.getElementById('UserLocale').value = userLocale;
+      document.getElementById('DateFormat').value = dateFormat;
+      document.getElementById('DateTimeFormat').value = dateTimeFormat;
+      console.log('Formatted Value : ' + formattedValue );
+      console.log('Out Method');
+  }
+  
+  </script>
+  <apex:pageMessage title="Demo Page" severity="INFO"/>
+     <apex:pageBlock id="pageBlock">
+         <apex:pageBlockSection id="pageBlockSection" collapsible="true" columns="2">
+             <apex:pageblockSectionItem >
+                <apex:outputText value="Enter Number"> </apex:outputText>  
+                <input type="text" id="NumberField" value="" title="Enter the number" />
+            </apex:pageblockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputText value="Formatted Number"></apex:outputText>
+                <input type="text" id="NumberFieldFormatted" value="" readonly="true" />
+            </apex:pageBlockSectionItem>
+            <apex:pageblockSectionItem >
+                <apex:outputText value="Enter Locale Formatted Number"> </apex:outputText>  
+                <input type="text" id="FormattedNumberField" value="" title="Enter the Locale formatted number or Copy and paste it from the Formatted number textbox." />
+            </apex:pageblockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputText value="Absolute Number"></apex:outputText>
+                <input type="text" id="absNumber" value="" readonly="true" />
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputText value="Select Date/Time"></apex:outputText>
+                <input name="enterDate" type="text" id="enterDate"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputText value="User's Locale"></apex:outputText>
+                <input type="text" readonly="true" id="UserLocale"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputText value="Date Format"></apex:outputText>
+                <input type="text" readonly="true" id="DateFormat"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:outputText value="Date Time Format"></apex:outputText>
+                <input type="text" readonly="true" id="DateTimeFormat"/>
+            </apex:pageBlockSectionItem>
+       </apex:pageBlockSection> 
+       <apex:pageblockButtons >
+        <input type="button" id="button" onClick="checkLocale()" value="Check"/>
+       </apex:pageblockButtons>
+  </apex:pageBlock>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>
+<!-- ************************ How to use ******************************* 
+
+Locale Based Formatter - Nugget
+Instructions:
+
+This nugget will help the Projects where we have a custom User interface and need to format Date, Numbers, Currency and Percentage fields based on the locale of the User.
+For instance: If the current locale of the User is German (Germany), then
+Number: 12312312 should be formatted/appear on screen as 12.312.312,00 
+Whereas the date & date time fields should appear/formatted as dd.MM.yyyy & dd.MM.yyyy HH:mm.
+So using this nugget user can format the VF page fields based on the locale of the user and even clear off the formatting(for Number fields) for any calculation purposes.
+How to use: 
+• Install the unmanaged package into your org using the given URL.
+• Import the Date/DateTime format records, provided in the Date Time Locale Format Data.csv.
+For Number Formatting:
+
+For using this custom formatter for Number formatting, user just need to import the custom component i.e. LocaleBasedFormatConvertor on the VF page using the syntax: 
+<c:LocaleBasedFormatConvertor />
+For formatting the number, currency, percentage fields in your Javascript method call the splitLocaleNumber() method with following parameters based on the type of input:
+splitLocaleNumber(num,methodToCall,strPercentage) where
+num - number to be formatted(Number, Currency, Percentage fields) , 
+methodToCall - pass 1 if you need to convert the comma and decimal separated number i.e. 234,234.00 to 234234.00 for calculation purposes(Based on the locale of the user), pass 2 for formatting the Number to comma and decimal seperated or other delimiters (Based on the locale of the User) for showing it on screen.
+strPercentage - For Percentage(%) fields pass 1 - to disply 2 decimal place value, else pass – 0.
+
+
+For Date Formatting:
+
+For formatting the Date & Date time fields which are basically the input fields on VF page and to select the date/dateTime we use custom date picker i.e. Jquery, Bootstrap etc. for such purposes we can utilize the hidden fields in the above mentioned component i.e.
+strLocaleDateFormat - contains date format based on the User’s locale. 
+strLocaleDateTimeFormat - contains the dateTime format based on the User’s locale.
+Please be informed that these formats are the Salesforce date/dateTime formats, for converting it to the Javascript date/dateTime format we have a utility method i.e. convertToJavascriptDateTime in our component pass the above string i.e. strLocaleDateFormat or strLocaleDateTimeFormat to this method and it will return you javascript datetime format.
+For instance: 
+var sLocaleFormatString = convertToJavascriptDateTime($('#strLocaleDateFormat').val());
+var sLocaleDateTimeFormatString = convertToJavascriptDateTime($('#strLocaleDateTimeFormat').val());
+And pass these formats to date picker’s format or locale field and the selected date will automatically be formatted based on the User’s locale.
+For Instance:
+Using the bootstrap daterangepicker: 
+function enableDateRangePicker(elementclass){
+var sLocaleFormatString = $j('#strLocaleDateFormat').val().toUpperCase();  // getting the locale based date time format of the User which is present in the strLocaleDateFormat hidden field in the imported component.
+            $j(elementclass).daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true,
+                locale :{
+                    format :sLocaleFormatString // passing the format.
+                }
+            }, 
+            function(start, end, label) {
+            });
+        }
+For getting more information you can view and use the LocaleBasedFormatterPage VF page to get an idea of the functionality and how to use it, just enter the number in the input box and press the check button and you will get the User’s locale information and formatted number and date will appear based on the local of the user.
+Component Details
+• Custom Setting: Date_Time_Locale_Formats__c where all the locale based Date and Datetime formats are saved. In case user want to add or modify new locale he/she can do so by Inserting/Updating the same. This custom setting has following text fields :
+o Date_Format__c – for storing the date format.
+o Date_Time_Format__c – for storing the datetime format.
+o Name – Name of the Locale (as returned by the SFDC User.getLocale() method).
+• Custom Component: LocaleBasedFormatConvertor which contains the functionality for formatting.
+• Apex Class: LocaleBasedFormatter & LocaleBasedFormatterTest .
+• Apex Page: LocaleBasedFormatterPage is a test page for testing the functionality. This is just a demo page for explaining the functionality to the user.
+• In addition to this I have given the Date Time Locale Format Data.csv which contains all the records which are loaded in the above mentioned custom metadata in order to upload it in your SandBox/Production orgs.
+Note : In case the user do not want to install the unmanaged package, may be because of some project constraints he/she can create the Custom setting as mentioned above and import all the records given in the Date Time Locale Format Data.csv attached. Next can import all the components shared i.e.
+• LocaleBasedFormatConvertor.component
+• LocaleBasedFormatterController.cls
+• LocaleBasedFormatterControllerTest.cls
+• LocaleBasedFormatterPage.page (just for testing and getting aware of the functionality.)
+And can import the custom component i.e. LocaleBasedFormatConvertor on the VF pages using the syntax: 
+<c:LocaleBasedFormatConvertor /> as mentioned above for Number and Date formatting, rest of the usage is mentioned above.
+
+Author: Prateek Saxena (Deloitte)
+
+
+-->

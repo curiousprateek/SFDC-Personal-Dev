@@ -1,0 +1,75 @@
+<apex:page controller="Example_Controller" showHeader="false" docType="html-5.0" language="en-US">
+  <html lang="en">
+    <head>
+      <!--adding viewport meta tag, to ensure proper rendering and touch zooming-->
+      <meta charset="utf-8"></meta>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+      <title>Example6</title>
+      
+      <!--page specific style-->
+      <style>
+        .ng-cloak {
+            display: none !important;
+        }
+        a {
+            cursor: pointer;
+        }
+      </style>
+      
+      <!--adding CSS-->
+      <link href="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+    </head>
+    <body style="background: #F9FAF7; padding: 20px">
+      <h1>Example6: Getting list of accounts from Salesforce.</h1><br/><br/>
+      <div class="bs ng-cloak" ng-app="demo">
+        <div ng-controller="appCtrl">
+          <ul>
+            <li ng-repeat="account in accountData track by $index">
+                {{account.Name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!--adding scripts-->
+      <script src="{!URLFOR($Resource.AngularJS, 'angular.min.js')}" ></script>
+      
+      <!--page specific script-->
+      <script>
+        function getAccountsR(callback){
+          Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.Example_Controller.getAccounts}',
+            callback,  
+            {escape: false}  
+          );        
+        }
+        
+        var app = angular.module('demo', []);
+        
+        app.controller('appCtrl', function ($scope){
+          
+          $scope.getAccounts = function() {
+            getAccountsR(function(result, event){  
+              $scope.$apply(function(){  
+                if(event.status) {
+                  //success
+                  $scope.accountData = result;
+                  console.log(result);
+                } else {
+                  //error
+                  console.log(event.message);
+                }
+              });   
+            });
+          };
+          
+          $scope.getAccounts();
+        });
+      </script>
+      
+      <!--page specific script from static resource>
+      <script src="{!URLFOR($Resource.Example1_Script)}" ></script-->
+    </body>
+  </html>
+</apex:page>

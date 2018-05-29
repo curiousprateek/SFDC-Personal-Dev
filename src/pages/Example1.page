@@ -1,0 +1,41 @@
+<apex:page showHeader="false" docType="html-5.0" language="en-US">
+  <html lang="en">
+    <head>
+      <!--adding viewport meta tag, to ensure proper rendering and touch zooming-->
+      <meta charset="utf-8"></meta>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+      <title>Example1</title>
+      
+      <!--page specific style-->
+      <style>
+        .ng-cloak {
+            display: none !important;
+        }
+      </style>
+      
+      <!--adding CSS-->
+      <link href="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+    </head>
+    <body style="background: #F9FAF7; padding: 20px">
+      <h1>Example1: Updating a html when input text changes.</h1><br/><br/>
+      <div class="bs ng-cloak" ng-app="demo">
+        Name: <input ng-model="name" type="text"/><br/><br/>
+        Hello {{name}}
+      </div>
+      <apex:form >
+      <c:MultipleUpload recordId="5009000001jNMsB" maxAttachments="1"/>
+      </apex:form>
+      <!--adding scripts-->
+      <script src="{!URLFOR($Resource.AngularJS, 'angular.min.js')}" ></script>
+      
+      <!--page specific script-->
+      <script>
+        var app = angular.module('demo', []);
+      </script>
+      
+      <!--page specific script from static resource>
+      <script src="{!URLFOR($Resource.Example1_Script)}" ></script-->
+    </body>
+  </html>
+</apex:page>

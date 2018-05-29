@@ -1,0 +1,36 @@
+<aura:component >
+
+	<aura:attribute name="newItem" type="Camping_Item__c" 
+        	default="{ 'sobjectType': 'Camping_Item__c',
+                        'Name': '',
+                        'Price__c': 0.0,
+                        'Quantity__c': 0,
+                        'Packed__c': false}"/>
+	<aura:registerEvent name="addItem" type="c:addItemEvent"/>
+	 <form class="slds-form--stacked">          
+	            <lightning:input aura:id="campingListform" label="Camping Item Name"
+	                             name="campingitemName"
+	                             value="{!v.newItem.Name}"
+	                             required="true"/> 
+	            <lightning:input type="number" aura:id="campingListform" label="Quantity"
+	                             name="campingitemQuantity"
+	                             min="1"
+	                             formatter="number"
+	                             step="1"
+	                             value="{!v.newItem.Quantity__c}" 
+	                             required="true" 
+	                             messageWhenRangeUnderflow="Enter a quantity that's at least 1."/>
+	            <lightning:input aura:id="campingListform" label="Price"
+	                             name="campingitemPrice"
+	                             formatter="currency"
+	                             value="{!v.newItem.Price__c}"
+	                             placeholder="ABC Co."/>          
+	            <lightning:input type="checkbox" aura:id="campingListform" label="Packed?"  
+	                             name="campingitemPacked"
+	                             checked="{!v.newItem.Packed__c}"/>
+	            <lightning:button label="Create Item" 
+	                              class="slds-m-top--medium"
+	                              variant="brand"
+	                              onclick="{!c.clickCreateItem}"/>
+	        </form>	
+</aura:component>

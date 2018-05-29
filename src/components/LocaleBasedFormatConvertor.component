@@ -1,0 +1,227 @@
+<!------------------------------------LocaleBasedFormatConvertor---------------------------------
+    This component contains the code for formatting the number, Currency, Percentage fields based on the locale of the user.
+    It also holds the functinality for formatting the date based on the locale of the User, during the scenario when we need date as the input field on the page and need to be shown in the locale format of the User.
+
+    For getting the String format of the Date & Datetime based on the locale of the user use the following fields : 
+    strLocaleDateFormat - String Date Format
+    strLocaleDateTimeFormat - String DateTime format
+    
+    It must be included in every VF page in the application where we want to utilize this functionality.
+    -------------------------------------------------------------------------------
+    API Name: GTS_Navigation_Menus
+    Created: Prateek Saxena (Deloitte)
+    Version: 1.0
+    -----------------------------------------------------------
+    Change Log:
+    -----------------------------------------------------------
+    v1.0    05.05.2016    Created by Prateek
+    v1.1    01.15.2016    Implemented Custom Labels for locales with similar Formatting
+
+    ------------------------------------------------------------------------------>
+<apex:component controller="LocaleBasedFormatterController">
+  <script type="text/javascript">
+      var strUserLocale = '{!strUserLocale}';
+
+      // This method is used to format the number based on the locale of the User.
+      // Parameters : number to be formatted(Number, Currency, Percentage fields) , 
+      //              methodToCall - pass 1 if you need to convert the comma and decimal seperated number i.e. 234,234.00 to
+      //                                 234234.00 for calculation purposes(Based on the locale of the user).
+      //                            pass 2 for formatting the Number to comma and decimal seperated or other delimiters.
+      //                                    (Based on the locale of the User).
+      //              strPercentage - For Percentage(%) fields pass 1 - to disply 2 decimal place value, 
+      //                              else pass - 0
+      function splitLocaleNumber(num,methodToCall,strPercentage)
+          {
+                if((num == "NaN") || (typeof num == "NaN") || 
+                      (num == 0) || (num==null) || (typeof num=="undefined") || (num=='') )
+                {
+                 return 0;
+                }
+                else
+                { 
+                    // Locale with the decimal as a thousand separator and comma as a decimal separator
+                    var Locales_Decimal_Thousand_Comma_Decimal = "{!$Label.Locales_Decimal_Thousand_Comma_Decimal}";
+
+                    //Locale with the comma(,) as a thousand separator and decimal (.) as a decimal separator
+                    var Locales_Comma_Thousand_Decimal_Decimal = "{!$Label.Locales_Comma_Thousand_Decimal_Decimal}";
+
+                    //  Locale with the space as a thousand separator and comma as a decimal separator
+                    var Locales_Space_Thousand_Comma_Decimal = "{!$Label.Locales_Space_Thousand_Comma_Decimal}";
+
+                    //  Locale with the apostrophe(') as thousand separator and decimal as a decimal separator
+                    var Locales_Apostrophe_Thousand_Decimal_Decimal = "{!$Label.Locales_Apostrophe_Thousand_Decimal_Decimal}";
+
+                    if (Locales_Decimal_Thousand_Comma_Decimal.indexOf(strUserLocale) > -1){
+                    
+                        // Locale with the decimal as a thousand separator and comma as a decimal separator
+                          if (methodToCall==1)
+                          {
+                            // num, decimal, thousands
+                            return setLocale(num,',','.');
+                          }else if (methodToCall==2)
+                          {
+                              //num,dec,thou,pnt,curr1,curr2,n1,n2
+                               if(strPercentage==1)
+                               {
+                                 return formatNumber(num,'2','.',',','','','-','');
+                               }
+                               else
+                               {
+                                 return formatNumber(num,'','.','','','','-','');
+                               }
+                          }
+                     }
+                     //Locale with the comma(,) as a thousand separator and decimal (.) as a decimal separator
+                     else if(Locales_Comma_Thousand_Decimal_Decimal.indexOf(strUserLocale) > -1){
+                                        
+                          if(methodToCall == 1)
+                          {
+                             // num, decimal, thousands
+                             return setLocale(num,'.',',');
+                          }
+                          else if(methodToCall==2)
+                          {
+                            //num,dec,thou,pnt,curr1,curr2,n1,n2
+                               if(strPercentage==1)
+                               {
+                                 return formatNumber(num,2,',','.','','','-','');
+                               }
+                               else 
+                               {
+                                 return formatNumber(num,'',',','','','','-','');
+                               }
+                          }
+                    } //  Locale with the space as a thousand separator and comma (,) as a decimal separator
+                    else if(Locales_Space_Thousand_Comma_Decimal.indexOf(strUserLocale) > -1){
+                        //  Locale with the space as a thousand separator and comma (,) as a decimal separator
+                         if(methodToCall == 1)
+                          {
+                             // num, decimal, thousands
+                             return setLocaleForSpaceSep(num,',',' ');
+                          }
+                          else if(methodToCall==2)
+                          {
+                             //num,dec,thou,pnt,curr1,curr2,n1,n2
+                             if(strPercentage==1)
+                             {
+                               return formatNumber(num,2,' ',',','','','-','');
+                             }
+                             else
+                             {
+                                return formatNumber(num,'',' ','','','','-','');
+                             }               
+                          }
+                      } //  Locale with the apostrophe (') as a thousand separator and decimal (.) as a decimal separator
+                      else if(Locales_Apostrophe_Thousand_Decimal_Decimal.indexOf(strUserLocale) > -1){
+                           if(methodToCall == 1)
+                           {
+                                 if(strUserLocale == 'rm_CH')
+                                 {
+                                    //num, decimal, thousands
+                                    num = num.toString().replace(/’/g, "'");
+                                    return setLocale(num,'.','\'');
+                                 }else
+                                 {
+                                    //num, decimal, thousands
+                                 return setLocale(num,'.',"'");
+                                 }
+                                                
+                            }
+                            else if(methodToCall==2)
+                            {
+                                 //num,dec,thou,pnt,curr1,curr2,n1,n2
+                                 if(strPercentage==1)
+                                 {
+                                     if(strUserLocale == 'rm_CH')
+                                     {
+                                       num = num.toString().replace(/’/g, "'");
+                                       return formatNumber(num,2,"'",'.','','','-','');
+                                     }
+                                     else {
+                                       return formatNumber(num,2,"'",'.','','','-','');
+                                     }
+                                 }
+                                 else
+                                  {
+                                    if(strUserLocale == 'rm_CH')
+                                    {
+                                       num = num.toString().replace(/’/g, "'");
+                                       return formatNumber(num,'',"'",'','','','-','');
+                                    }else 
+                                    {
+                                      return formatNumber(num,'',"'",'','','','-','');
+                                    }
+                                  } 
+                             }
+                          }
+                }     
+          }
+          
+          
+           // Method to remove thousand separators used to get a string before any calculations
+           function setLocale(num, decimal, thousands) 
+          {
+            var bits = num.toString().split(decimal, 2),
+            ones = bits[0].replace(new RegExp('\\' + thousands, 'g'), '');
+            ones= ones.replace(/−/,'-');
+             
+            var iMultiplier = 1;
+            if( ones.indexOf('-') >=0 ) {
+              ones = ones.replace('-','');
+              iMultiplier = -1;
+            }
+            ones = parseFloat(ones, 10);
+            decimal = parseFloat('0.' + bits[1], 10);
+            return (ones + decimal)*iMultiplier;          
+          }
+           
+          // Method to remove space used to get a string before any calculations
+           function setLocaleForSpaceSep(num, decimal, thousands) 
+          {
+            var bits = num.toString().split(decimal, 2),
+            ones = bits[0].replace(new RegExp('\\' + thousands, 'g'), '');
+            ones = ones.toString().replace(/[^\d\-]/g,'');
+            ones= ones.replace(/−/,'-');
+            var iMultiplier = 1;
+            if( ones.indexOf('-') >=0 ) {
+                ones = ones.replace('-','');
+                iMultiplier = -1;
+            }
+            ones = parseFloat(ones, 10),
+            decimal = parseFloat('0.' + bits[1], 10);
+            return (ones + decimal)*iMultiplier;
+           }
+           
+          //Formats the number based on the passed delimiter(based on the locale of the User)
+           function formatNumber(num,dec,thou,pnt,curr1,curr2,n1,n2) {
+             var x = Math.round(num * Math.pow(10,dec));
+             if (x >= 0) n1=n2='';
+             var y = (''+Math.abs(x)).split('');
+             var z = y.length - dec; if (z<0) z--; 
+             for(var i = z; i < 0; i++) y.unshift('0'); 
+             if (z<0) z = 1; y.splice(z, 0, pnt); 
+             if(y[0] == pnt) y.unshift('0'); 
+             while (z > 3) 
+             {
+              z-=3; y.splice(z,0,thou);
+             }
+             var r = curr1+n1+y.join('')+n2+curr2;return r;
+           }  
+
+           //This method converts the SFDC datetime format string to Javascript date time format.
+           //parameter : date or datetime format string.
+           function convertToJavascriptDateTime(datetimeString){
+            if ((datetimeString==null) || (typeof datetimeString=="undefined") || (datetimeString=='')){
+              return 0;
+            }
+            datetimeString = datetimeString.replace(/d/gi, "D");
+            datetimeString = datetimeString.replace(/y/gi, "Y");
+            datetimeString = datetimeString.replace(/a/gi, "A");
+            return datetimeString;
+           }
+                 
+  </script>
+  <input type="hidden" value="{!strUserLocale}" id="strUserLocale" />
+  <input type="hidden" value="{!constructDateFormat}" id="strLocaleDateFormat" />
+  <input type="hidden" value="{!constructDateTimeFormat}" id="strLocaleDateTimeFormat" />
+</apex:component>

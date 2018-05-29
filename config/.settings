@@ -1,0 +1,18 @@
+{
+    "projectName": "Prateek Dev Org",
+    "username": "pratsaxena@prateek.com",
+    "id": "db344e60-4936-11e8-a87a-4f23849ca72a",
+    "namespace": "",
+    "orgType": "developer",
+    "loginUrl": "https://login.salesforce.com/",
+    "instanceUrl": "https://curious-prateek-dev-ed.my.salesforce.com",
+    "workspace": "C:\\Development",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "CustomApplicationComponent",
+        "StaticResource"
+    ]
+}

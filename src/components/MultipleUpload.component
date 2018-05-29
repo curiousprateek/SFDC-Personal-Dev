@@ -1,0 +1,15 @@
+<apex:component Controller="MultipleUploadController" selfClosing="true" allowDML="true">
+    <apex:attribute assignTo="{!parentId}" description="the parent record id to which the attachments get uploaded" name="recordId" required="true" type="id"/>
+    <apex:attribute assignTo="{!maxFiles}" description="the maximum attachments to be allowed" name="maxAttachments" required="false" type="Integer" default="10"/>
+    
+    <apex:pageBlock title="{!$Label.Multiple_Upload_PageBlock_Title}">
+        
+        <apex:pageMessages id="MSG"/>
+        <apex:commandButton value="Upload"  action="{!SaveAttachments}" id="Upload_Button_hidden" styleClass="Upload_Button_hidden"/>
+        
+        <apex:repeat value="{!allFileList}" var="AFL">
+            <apex:inputfile value="{!AFL.body}" filename="{!AFL.Name}" />
+        </apex:repeat>
+        
+    </apex:pageBlock>
+</apex:component>

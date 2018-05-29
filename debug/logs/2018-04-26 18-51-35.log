@@ -1,0 +1,27 @@
+42.0 APEX_CODE,DEBUG;APEX_PROFILING,INFO;CALLOUT,FINER;DB,INFO;SYSTEM,DEBUG;VALIDATION,INFO;VISUALFORCE,INFO;WAVE,INFO;WORKFLOW,INFO
+06:21:33.0 (268281)|USER_INFO|[EXTERNAL]|00590000002qvnQ|autoproc@00d90000000xupheai|Pacific Standard Time|GMT-07:00
+06:21:33.0 (379071)|EXECUTION_STARTED
+06:21:33.0 (389567)|CODE_UNIT_STARTED|[EXTERNAL]|01q90000000p7Xg|OrderEventTrigger on Order_Event trigger event AfterInsert
+06:21:33.0 (1541185)|SOQL_EXECUTE_BEGIN|[6]|Aggregations:0|SELECT Id FROM User WHERE Name = 'Prateek Saxena' LIMIT 1
+06:21:33.0 (6747923)|SOQL_EXECUTE_END|[6]|Rows:1
+06:21:33.0 (7522245)|DML_BEGIN|[21]|Op:Insert|Type:Task|Rows:1
+06:21:33.0 (85607476)|DML_END|[21]
+06:21:33.85 (85699645)|CUMULATIVE_LIMIT_USAGE
+06:21:33.85 (85699645)|LIMIT_USAGE_FOR_NS|(default)|
+  Number of SOQL queries: 1 out of 100
+  Number of query rows: 1 out of 50000
+  Number of SOSL queries: 0 out of 20
+  Number of DML statements: 1 out of 150
+  Number of DML rows: 1 out of 10000
+  Maximum CPU time: 0 out of 10000
+  Maximum heap size: 0 out of 6000000
+  Number of callouts: 0 out of 100
+  Number of Email Invocations: 0 out of 10
+  Number of future calls: 0 out of 50
+  Number of queueable jobs added to the queue: 0 out of 50
+  Number of Mobile Apex push calls: 0 out of 10
+
+06:21:33.85 (85699645)|CUMULATIVE_LIMIT_USAGE_END
+
+06:21:33.0 (87082792)|CODE_UNIT_FINISHED|OrderEventTrigger on Order_Event trigger event AfterInsert
+06:21:33.0 (87947770)|EXECUTION_FINISHED

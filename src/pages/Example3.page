@@ -1,0 +1,56 @@
+<apex:page showHeader="false" docType="html-5.0" language="en-US">
+  <html lang="en">
+    <head>
+      <!--adding viewport meta tag, to ensure proper rendering and touch zooming-->
+      <meta charset="utf-8"></meta>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+      <title>Example3</title>
+      
+      <!--page specific style-->
+      <style>
+        .ng-cloak {
+            display: none !important;
+        }
+      </style>
+      
+      <!--adding CSS-->
+      <link href="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+    </head>
+    <body style="background: #F9FAF7; padding: 20px">
+      <h1>Example3: Changing scope values asynchronously - updates don't propagate without .apply().</h1><br/><br/>
+      <h1>See also <a href="http://docs.angularjs.org/api/ng/type/$rootScope.Scope">Angular docs on $scope</a> (explains $watch and $apply).</h1><br/><br/>
+      <div class="bs ng-cloak" ng-app="demo">
+        <div ng-controller="appCtrl">
+          First name: <input ng-model="firstName" type="text"/><br/><br/>
+          Last name: <input ng-model="lastName" type="text"/><br/><br/>
+          Hello {{firstName}} {{lastName}}
+        </div>
+      </div>
+      
+      <!--adding scripts-->
+      <script src="{!URLFOR($Resource.AngularJS, 'angular.min.js')}" ></script>
+      
+      <!--page specific script-->
+      <script>
+        var app = angular.module('demo', []);
+        
+        app.controller('appCtrl', function ($scope){
+          $scope.firstName = 'John';
+          $scope.$watch('lastName', function(newValue, oldValue){
+            console.log('Old value was ' + oldValue);
+            console.log('New value is ' + newValue);
+          });
+
+          setTimeout(function(){
+            $scope.lastName = 'Smith';
+            $scope.$apply();
+          }, 1000);
+        });
+      </script>
+      
+      <!--page specific script from static resource>
+      <script src="{!URLFOR($Resource.Example1_Script)}" ></script-->
+    </body>
+  </html>
+</apex:page>

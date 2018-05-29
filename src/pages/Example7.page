@@ -1,0 +1,83 @@
+<apex:page controller="Example_Controller" showHeader="false" docType="html-5.0" language="en-US">
+  <html lang="en">
+    <head>
+      <!--adding viewport meta tag, to ensure proper rendering and touch zooming-->
+      <meta charset="utf-8"></meta>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+      <title>Example7</title>
+      
+      <!--page specific style-->
+      <style>
+        .ng-cloak { display: none !important; }
+        thead { background: #f0f0f0; }
+        table { border: 2px solid #ddd; background: white; }
+        a { cursor: pointer; }
+      </style>
+      
+      <!--adding CSS-->
+      <link href="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+    </head>
+    <body style="background: #F9FAF7; padding: 20px">
+      <h1>Example7: Interactively searching and sorting list of accounts from Salesforce.</h1><br/><br/>
+      <div class="bs ng-cloak" ng-app="demo">
+        <div ng-controller="appCtrl">
+          <div class="row">
+            <div class="form-group col-sm-2 col-sm-offset-10" >
+              <input class="form-control input-sm" id="searchText" placeholder="Search accounts" style="width:100%" ng-model="searchText" ng-change="searchData()"/>
+            </div>
+          </div>
+          <div class="row" ng-hide="loaded || alerts">
+              <div class="form-group col-sm-12" >
+                  <img class="center-block" src="{!URLFOR($Resource.jqueryUI, 'jqueryUI/loading-m.gif')}" border="0" />
+              </div>
+          </div>
+          <div class="row" ng-show="alerts">
+              <div class="form-group col-sm-12" >
+                  <alert class="alert-dismissible" ng-repeat="alert in alerts" type="{{alert.type}}" >{{alert.msg}}</alert>
+              </div>
+          </div>
+          <div class="row" ng-show="filteredAccountData">
+            <div class="form-group col-sm-12" >
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th><a ng-click="sort = 'Name';reverse = !reverse;">Name <span ng-class="{'glyphicon-sort-by-alphabet' : !reverse,'glyphicon-sort-by-alphabet-alt' : reverse}" class="glyphicon" ng-show="sort=='Name'"/></a></th>
+                            <th><a ng-click="sort = 'Type';reverse = !reverse;">Type <span ng-class="{'glyphicon-sort-by-alphabet' : !reverse,'glyphicon-sort-by-alphabet-alt' : reverse}" class="glyphicon" ng-show="sort=='Type'"/></a></th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="account in filteredAccountData">
+                        <td style="vertical-align: middle;">
+                            <a ng-href="/{{account.Id}}">{{account.Name}}</a>
+                        </td>
+                        <td style="vertical-align: middle;">
+                            {{account.Type}}
+                        </td>
+                    </tr>
+                </table>
+                <pagination class="pagination-sm" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" max-size="10" ng-show="accountData && (accountData.length>5)" rotate="false" previous-text="<" next-text=">"></pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!--adding scripts-->
+      <script src="{!URLFOR($Resource.AngularJS, 'angular.min.js')}" ></script>
+      <script src="{!URLFOR($Resource.AngularJS, 'ui-bootstrap-tpls-0.12.1.min.js')}" ></script>
+      
+      <!--page specific script-->
+      <script>
+        function getAccountsR(callback){
+          Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.Example_Controller.getAccounts}',
+            callback,  
+            {escape: false}  
+          );        
+        }
+      </script>
+      
+      <!--page specific script from static resource-->
+      <script src="{!URLFOR($Resource.Example7_Script)}" ></script>
+    </body>
+  </html>
+</apex:page>

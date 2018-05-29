@@ -1,0 +1,40 @@
+<apex:page controller="SearchFieldDemoController" tabStyle="Account" sidebar="false">
+    <style type="text/css">
+        .searchField {
+            width:200px
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock id="pb" title="Search Field Demo">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Submit" reRender="pb" style="width:100px"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1" title="Search Field" collapsible="false">
+                <apex:pageBlockSectionItem helpText="Search for Account, Try typing 'A' and press the submit button to get the value">
+                    <apex:outputLabel >Search Account</apex:outputLabel>
+                    <c:SearchField allowClear="true" 
+                            importJquery="true" 
+                            labelField="Name"
+                            valueField="Id" 
+                            targetField="{!targetField}" 
+                            styleclass="searchField" 
+                            placeholder="select Account" 
+                            syncManualEntry="false" 
+                            exactMatch="false"
+                            SObject="Account"
+                            MinimumInputLength="1"
+                            Query="select Id,Name from Account where Name like '%{0}%'"
+                    />
+                </apex:pageBlockSectionItem>
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1" title="Once Submitted Value Will Appear Below" collapsible="false">
+                <apex:pageBlockSectionItem helpText="Once you Press the SUBMIT button after selecting a Account the Account Id will appear below">
+                    <apex:outputLabel >Selected Account Id</apex:outputLabel>
+                    <apex:inputText value="{!targetField}" disabled="true" style="width:200px!important"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+           
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

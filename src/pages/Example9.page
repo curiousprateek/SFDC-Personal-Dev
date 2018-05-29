@@ -1,0 +1,75 @@
+<apex:page controller="Example_Controller" showHeader="false" docType="html-5.0" language="en-US">
+  <html lang="en">
+    <head>
+      <!--adding viewport meta tag, to ensure proper rendering and touch zooming-->
+      <meta charset="utf-8"></meta>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+      <title>Example9</title>
+      
+      <!--page specific style-->
+      <style>
+        .ng-cloak { display: none !important; }
+        thead { background: #f0f0f0; }
+        table { border: 2px solid #ddd; background: white; }
+        a { cursor: pointer; }
+      </style>
+      
+      <!--adding CSS-->
+      <link href="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+    </head>
+    <body style="background: #F9FAF7; padding: 20px">
+      <h1>Example9: Applying concepts of factory.</h1><br/><br/>
+      <div class="bs ng-cloak" ng-app="demo">
+        <div class="ng-view"></div>
+      </div>
+      
+      <!--adding scripts-->
+      <script src="{!URLFOR($Resource.AngularJS, 'angular.min.js')}" ></script>
+      <script src="{!URLFOR($Resource.AngularJS, 'angular-route.min.js')}" ></script>
+      <script src="{!URLFOR($Resource.AngularJS, 'ui-bootstrap-tpls-0.12.1.min.js')}" ></script>
+      
+      <!--page specific script-->
+      <script>
+      
+        var homeTemplateURL = "{!URLFOR($Resource.Example9_Home_Template)}";
+        var accountTemplateURL = "{!URLFOR($Resource.Example8_Account_Template)}";
+        var newTemplateURL = "{!URLFOR($Resource.Example9_New_Template)}";
+        
+        var loadingImageURL = "{!URLFOR($Resource.jqueryUI, 'jqueryUI/loading-m.gif')}";
+        var jsonAccount = JSON.parse("{!JSENCODE(jsonAccount)}");
+        var jsonTypeOptions = JSON.parse("{!JSENCODE(jsonTypeOptions)}");
+        
+        function getAccountsR(callback){
+          Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.Example_Controller.getAccounts}',
+            callback,  
+            {escape: false}  
+          );        
+        }
+        
+        function getAccountDetailR(accountId, callback){
+          Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.Example_Controller.getAccountDetail}',
+            accountId,
+            callback,  
+            {escape: false}  
+          );        
+        }
+        
+        function saveR(account, callback){
+          Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.Example_Controller.save}',
+            account,
+            callback,  
+            {escape: false}  
+          );        
+        }
+        
+      </script>
+      
+      <!--page specific script from static resource-->
+      <script src="{!URLFOR($Resource.Example9_Script)}" ></script>
+    </body>
+  </html>
+</apex:page>

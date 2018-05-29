@@ -1,0 +1,56 @@
+<apex:page showHeader="false" docType="html-5.0" language="en-US">
+  <html lang="en">
+    <head>
+      <!--adding viewport meta tag, to ensure proper rendering and touch zooming-->
+      <meta charset="utf-8"></meta>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+      <title>Example4</title>
+      
+      <!--page specific style-->
+      <style>
+        .ng-cloak {
+            display: none !important;
+        }
+      </style>
+      
+      <!--adding CSS-->
+      <link href="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}" rel="stylesheet" />
+    </head>
+    <body style="background: #F9FAF7; padding: 20px">
+      <h1>Example4: Looping over lists in templates using ng-repeat and adding entries using forms and ng-submit.</h1><br/><br/>
+      <div class="bs ng-cloak" ng-app="demo">
+        <div ng-controller="appCtrl">
+          <ul>
+            <li ng-repeat="name in names track by $index">
+                {{name}}
+            </li>
+          </ul>
+          <form ng-submit="addName()">
+            <input type="text" ng-model="enteredName"/>
+            <button type="submit">add</button>
+          </form>
+        </div>
+      </div>
+      
+      <!--adding scripts-->
+      <script src="{!URLFOR($Resource.AngularJS, 'angular.min.js')}" ></script>
+      
+      <!--page specific script-->
+      <script>
+        var app = angular.module('demo', []);
+        
+        app.controller('appCtrl', function ($scope){
+          $scope.names = ['Larry', 'Curly', 'Moe'];
+          
+          $scope.addName = function() {
+            $scope.names.push($scope.enteredName);
+          };
+        });
+      </script>
+      
+      <!--page specific script from static resource>
+      <script src="{!URLFOR($Resource.Example1_Script)}" ></script-->
+    </body>
+  </html>
+</apex:page>
