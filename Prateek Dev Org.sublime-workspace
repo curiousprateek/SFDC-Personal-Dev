@@ -64,10 +64,10 @@
 			}
 		},
 		{
-			"contents": "",
+			"contents": "Remote:   origin @ https://github.com/curiousprateek/SFDC-Personal-Dev.git\nLocal:    master C:\\Development\\Prateek Dev Org\nHead:     a0ac8ca Changes in sublime-workspace file\n\n\nChanges:\n\tModified   config/.local_store\n\tModified   src/classes/AppConstants.cls\n\n\n# Movement:\n#    r = refresh status\n#    1-5 = jump to section\n#    n = next item, N = next section\n#    p = previous item, P = previous section\n#\n# Staging:\n#    s = stage file/section, S = stage all unstaged files\n#    ctrl+shift+s = stage all unstaged and untracked files\n#    u = unstage file/section, U = unstage all files\n#    backspace = discard file/section, shift+backspace = discard everything\n#\n# Commit:\n#    c = commit, C = commit -a (add unstaged)\n#    ctrl+shift+c = commit --amend (amend previous commit)\n#\n# Other:\n#    i = ignore file, I = ignore pattern\n#    enter = open file\n#    d = view diff\n#\n# Stashes:\n#    a = apply stash, A = pop stash\n#    z = create stash, Z = create stash including untracked files\n#    backspace = discard stash",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 1021,
 				"line_ending": "Windows",
 				"name": "*git-status*: Prateek Dev Org",
 				"read_only": true,
@@ -426,7 +426,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1021,
 						"regions":
 						{
 						},
