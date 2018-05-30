@@ -2100,15 +2100,17 @@
         "mmState": "clean"
     },
     "AppConstants.cls": {
-        "createdById": "00590000002m6GCAAY",
-        "createdByName": "Prateek Saxena",
-        "createdDate": "2016-05-05T12:46:04.000Z",
-        "fileName": "unpackaged/classes/AppConstants.cls",
-        "fullName": "AppConstants",
         "id": "01p90000006aefKAAQ",
+        "name": "AppConstants",
+        "createdDate": "2016-05-05T12:46:04.000+0000",
+        "createdById": "00590000002m6GCAAY",
+        "namespacePrefix": null,
         "lastModifiedById": "00590000002m6GCAAY",
+        "lastModifiedDate": "2018-05-29T13:32:04.000+0000",
+        "fullName": "AppConstants",
+        "fileName": "unpackaged/classes/AppConstants.cls",
+        "createdByName": "Prateek Saxena",
         "lastModifiedByName": "Prateek Saxena",
-        "lastModifiedDate": "2016-05-05T12:48:43.000Z",
         "manageableState": "unmanaged",
         "type": "ApexClass",
         "mmState": "clean"
