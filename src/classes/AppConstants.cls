@@ -7,6 +7,7 @@ public class AppConstants {
     public static final String DESC_ATTRIBUTE = 'Description';
     public static final String MDT_SUFFIX = '__mdt';
     public static final String DEVELOPER_NAME = 'Prateek';
+    public static final String DEVELOPER_NAME1 = 'Prateek1';
 
     
     public static final String SELECT_STRING = 'Select type';
